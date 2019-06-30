@@ -1,30 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../models');
+let User = require('../models/user');
 
 router.get('/', (req, res) => {
-  db.User.find()
-    .then(users => {
-      res.send(users);
-    })
-    .catch(err => {
-      res.send(err);
-    });
+  User.find()
+    .then(users => res.json(users))
+    .catch(err => res.send(err));
 });
 
 router.post('/', (req, res) => {
-  db.User.create(req.body)
-    .then(newUser => {
-      res.send(newUser);
-    })
+  const { name, email, team, isAdmin } = req.body;
+  const newUser = new User({ name, email, team, isAdmin });
+
+  newUser
+    .save()
+    .then(() => res.json(newUser))
     .catch(err => res.send(err));
 });
 
 router.get('/:userId', (req, res) => {
-  db.User.findById(req.params.userId)
-    .then(foundUser => {
-      res.send(foundUser);
-    })
+  User.findById(req.params.userId)
+    .then(user => res.json(user))
     .catch(err => res.send(err));
 });
 
