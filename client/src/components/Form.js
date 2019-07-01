@@ -54,7 +54,7 @@ class Form extends Component {
             <label>Email: </label>
             <input
               name="email"
-              type="text"
+              type="email"
               required
               value={this.state.email}
               onChange={this.handleInputChange}
