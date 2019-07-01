@@ -35,7 +35,7 @@ class UsersList extends React.Component {
       <div>
         <div className="users-list">
           {this.props.users.users.length === 0 ? (
-            <h1>Create a user</h1>
+            <h1>No users available</h1>
           ) : (
             <h1>Users List</h1>
           )}
