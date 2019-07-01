@@ -7,7 +7,6 @@ function App() {
   return (
     <Router>
       <Route path={['/', '/users']} exact component={Home} />
-      {/* <Route path="/users" exact component={Home} /> */}
       <Route path="/users/:userId" exact component={User} />
     </Router>
   );
