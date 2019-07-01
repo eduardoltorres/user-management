@@ -24,4 +24,10 @@ router.get('/:userId', (req, res) => {
     .catch(err => res.send(err));
 });
 
+router.delete('/:userId', (req, res) => {
+  User.findByIdAndDelete(req.params.userId)
+    .then(user => res.json(user))
+    .catch(err => res.send(err));
+});
+
 module.exports = router;
