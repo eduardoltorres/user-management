@@ -18,13 +18,12 @@ form {
   background-color: aliceblue;
   padding: 20px;
   border-radius: 20px;
-  width: 200px;
+  width: 280px;
   margin: 0 auto;
 }
 
 .users-list {
   text-align: center;
-  /* border: 1px solid tomato; */
 }
 
 .user-card {
