@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 
 require('dotenv').config();
 
-const port = process.env.PORT || 5000;
 const uri = process.env.ATLAS_URI;
 
 app.use(cors());
@@ -20,6 +19,16 @@ mongoose.Promise = Promise;
 
 const userRoutes = require('./routes/users');
 app.use('/users', userRoutes);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`APP IS RUNNING ON PORT ${port}`);
