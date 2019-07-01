@@ -9,3 +9,5 @@ Create and organize users by team and hierarchy. View and delete users.
 - View a user
 - Delete a user
 - MERN (MongoDB, Express, React, Node.js) stack application
+
+_Visit the application [here](https://bloc-smarties-15763.herokuapp.com/)._
